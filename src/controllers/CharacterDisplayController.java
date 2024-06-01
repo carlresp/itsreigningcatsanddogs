@@ -30,7 +30,7 @@ import reigning.Move;
 import reigning.Reigning;
 
 public class CharacterDisplayController implements Initializable {
-//testing
+//testing 2
     private Character user, opp;
     private int turn;
     @FXML private ImageView lImg, rImg;
