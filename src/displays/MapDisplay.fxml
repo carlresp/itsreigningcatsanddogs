@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="mapGrid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MapDisplayController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="105.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Map" textAlignment="CENTER" wrappingWidth="160.13671875" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+         <font>
+            <Font name="Courier New" size="48.0" />
+         </font>
+      </Text>
+      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#openMenu" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevSet" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Prev" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextSet" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Next" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Button>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="177.13671875" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font name="Courier New" size="27.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="175.13671875" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font name="Courier New" size="27.0" />
+         </font>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="171.13671875" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font name="Courier New" size="27.0" />
+         </font>
+      </Text>
+      <Button mnemonicParsing="false" onAction="#openLocation" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: lightblue;">
+               <viewport>
+                  <Rectangle2D height="150.0" minX="150.0" minY="150.0" width="150.0" />
+               </viewport></ImageView>
+         </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#openLocation" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: lightblue;" />
+         </graphic>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#openLocation" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+   </children>
+</GridPane>

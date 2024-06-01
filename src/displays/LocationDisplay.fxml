@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="locationDisplayBorderPane" blendMode="DARKEN" prefHeight="480.0" prefWidth="720.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LocationDisplayController">
+   <center>
+      <GridPane fx:id="locGrid" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="147.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="249.0" minHeight="10.0" prefHeight="177.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="67.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text id="ss" fx:id="locName" fill="#dacfcf" strokeType="OUTSIDE" strokeWidth="0.0" text="Location name" wrappingWidth="400.13671875" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Text>
+            <Button id="ss" fx:id="backBtn" mnemonicParsing="false" onAction="#openMap" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Back" GridPane.halignment="LEFT">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="ss" fx:id="prevBtn" mnemonicParsing="false" onAction="#prevSet" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Prev" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="ss" fx:id="nextBtn" mnemonicParsing="false" onAction="#nextSet" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="35.0" prefWidth="75.0" style="-fx-background-color: lightblue;" text="Next" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Text id="ss" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="184.13671875" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text id="ss" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="176.13671875" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text id="ss" fill="#eee8e8" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="181.13671875" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Text>
+            <Button id="ss" mnemonicParsing="false" onAction="#openCharacter" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="ss" mnemonicParsing="false" onAction="#openCharacter" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button id="ss" mnemonicParsing="false" onAction="#openCharacter" onMouseEntered="#mO" onMouseExited="#mE" prefHeight="151.0" prefWidth="151.0" style="-fx-background-color: transparent;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="157.0" onMouseEntered="#mO" onMouseExited="#mE" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Button>
+            <Text id="ss" fx:id="locFlavorText" fill="#e1dede" strokeType="OUTSIDE" strokeWidth="0.0" text="Location flavortext" wrappingWidth="463.13671875" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+            </Text>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
