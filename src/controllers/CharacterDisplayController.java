@@ -78,10 +78,17 @@ public class CharacterDisplayController implements Initializable {
         double d = ((double) c.getHP()) / ((double) c.getMaxHP());
         lHpLvl.setProgress(d);
         //set img
-        Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
-        lImg.setImage(img);
+        try{
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
+            lImg.setImage(img);
+        }
+        catch(NullPointerException e){
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/not.png"));
+            lImg.setImage(img);
+        }
     }
     private void setRight(Character c){
+        System.out.print("printin "+c.getName());
         rName.setText(c.getName());//set name
         //set stats
         rLvl.setText(""+(int)c.getLvl());
@@ -92,8 +99,14 @@ public class CharacterDisplayController implements Initializable {
         double d = ((double) c.getHP()) / ((double) c.getMaxHP());
         rHpLvl.setProgress(d);
         //set img
-        Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
-        rImg.setImage(img);
+        try{
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
+            rImg.setImage(img);
+        }
+        catch(NullPointerException e){
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/not.png"));
+            rImg.setImage(img);
+        }
     }
     
     //buttons

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,171 +15,244 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CharacterDisplayController">
-   <children>
-      <HBox prefHeight="200.0" prefWidth="600.0">
+
+<BorderPane prefHeight="575.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CharacterDisplayController">
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="300.0">
+            <HBox prefHeight="200.0" prefWidth="600.0">
                <children>
-                  <ImageView fx:id="lImg" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="300.0">
                      <children>
-                        <Text fx:id="lName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level:" GridPane.rowIndex="1" />
-                        <Text fx:id="lLvl" strokeType="OUTSIDE" strokeWidth="0.0" text="lvl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Text fx:id="lAtk" strokeType="OUTSIDE" strokeWidth="0.0" text="atk" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defense:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <Text fx:id="lDef" strokeType="OUTSIDE" strokeWidth="0.0" text="def" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <ImageView fx:id="lImg" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Text fx:id="lName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="lLvl" strokeType="OUTSIDE" strokeWidth="0.0" text="lvl" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="lAtk" strokeType="OUTSIDE" strokeWidth="0.0" text="atk" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defense:" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="lDef" strokeType="OUTSIDE" strokeWidth="0.0" text="def" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP:" wrappingWidth="24.841796875">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="lHp" strokeType="OUTSIDE" strokeWidth="0.0" text="hp" wrappingWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <ProgressBar fx:id="lHpLvl" prefWidth="200.0" progress="0.2" />
+                           </children>
+                        </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </GridPane>
-                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP:" wrappingWidth="24.841796875">
-                           <HBox.margin>
-                              <Insets bottom="3.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text fx:id="lHp" strokeType="OUTSIDE" strokeWidth="0.0" text="hp" wrappingWidth="24.841796875">
-                           <HBox.margin>
-                              <Insets bottom="3.0" />
-                           </HBox.margin>
-                        </Text>
-                        <ProgressBar fx:id="lHpLvl" prefWidth="200.0" progress="0.2" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0">
-               <children>
-                  <ImageView fx:id="rImg" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-                  <GridPane>
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Text fx:id="rName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level:" GridPane.rowIndex="1" />
-                        <Text fx:id="rLvl" strokeType="OUTSIDE" strokeWidth="0.0" text="lvl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Text fx:id="rAtk" strokeType="OUTSIDE" strokeWidth="0.0" text="atk" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defense:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <Text fx:id="rDef" strokeType="OUTSIDE" strokeWidth="0.0" text="def" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </GridPane>
-                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP:" wrappingWidth="24.841796875">
-                           <HBox.margin>
-                              <Insets bottom="3.0" />
-                           </HBox.margin>
-                        </Text>
-                        <Text fx:id="rHp" strokeType="OUTSIDE" strokeWidth="0.0" text="hp" wrappingWidth="24.841796875">
-                           <HBox.margin>
-                              <Insets bottom="3.0" />
-                           </HBox.margin>
-                        </Text>
-                        <ProgressBar fx:id="rHpLvl" prefWidth="200.0" progress="0.2" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
-      <SplitPane dividerPositions="0.5" prefHeight="200.0" prefWidth="600.0">
-         <items>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <ScrollPane prefHeight="70.0" prefWidth="296.0">
-                     <content>
-                        <Text fx:id="dialogText" strokeType="OUTSIDE" strokeWidth="0.0" text="Dialog Said" wrappingWidth="280.1982421875">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Text>
-                     </content>
-                  </ScrollPane>
-                  <VBox fx:id="dialogOptionBox" alignment="TOP_CENTER" prefHeight="130.0" prefWidth="296.0">
-                     <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
+                        <ImageView fx:id="rImg" fitHeight="125.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Text fx:id="rName" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level:" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rLvl" strokeType="OUTSIDE" strokeWidth="0.0" text="lvl" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Attack:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rAtk" strokeType="OUTSIDE" strokeWidth="0.0" text="atk" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Defense:" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rDef" strokeType="OUTSIDE" strokeWidth="0.0" text="def" textAlignment="RIGHT" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </GridPane>
+                        <HBox alignment="CENTER" prefHeight="27.0" prefWidth="300.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HP:" wrappingWidth="24.841796875">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rHp" strokeType="OUTSIDE" strokeWidth="0.0" text="hp" wrappingWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets bottom="3.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                              <ProgressBar fx:id="rHpLvl" prefWidth="200.0" progress="0.2" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
-            </VBox>
-            <GridPane alignment="CENTER" prefHeight="198.0" prefWidth="300.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button fx:id="move1Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" text="Move " GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="inventoryBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openInventory" text="Inventory" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="move2Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" text="Move " GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="move3Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" text="Move " GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </GridPane>
-         </items>
-      </SplitPane>
-   </children>
-</VBox>
+            </HBox>
+            <SplitPane dividerPositions="0.5301003344481605" prefHeight="200.0" prefWidth="600.0">
+               <items>
+                  <VBox prefHeight="200.0" prefWidth="316.0">
+                     <children>
+                        <ScrollPane prefHeight="70.0" prefWidth="296.0">
+                           <content>
+                              <Text fx:id="dialogText" strokeType="OUTSIDE" strokeWidth="0.0" text="Dialog Said" wrappingWidth="280.1982421875">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Text>
+                           </content>
+                        </ScrollPane>
+                        <VBox fx:id="dialogOptionBox" alignment="TOP_CENTER" prefHeight="130.0" prefWidth="296.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="275.0" text="Button">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <GridPane alignment="CENTER" prefHeight="198.0" prefWidth="300.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="move1Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" prefWidth="105.0" text="Move " textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="inventoryBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#openInventory" prefWidth="125.0" text="Inventory" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="move2Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" prefWidth="105.0" text="Move " textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="move3Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#performMove" prefWidth="105.0" text="Move " textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
