@@ -20,6 +20,18 @@ public class Reigning extends Application {
         final int SEEDLENGTH = 4, SEED = random.nextInt((int)Math.pow(10, SEEDLENGTH)); // Generates a random number between 0 (inclusive) and 1000 (exclusive)
         System.out.println("Seed: " + SEED);
         
+        //TESTING INSTANCE BEHAVIOR
+        /*Character jaden = new Character("jaden", 100, 0,0);
+        ArrayList<Character> s = new ArrayList<>();
+        s.add(jaden);
+        s.add(jaden);
+        s.add(jaden);
+        s.get(0).damage(-20);
+            System.out.println("\n\n");
+        for(int i=0; i<3;i++){
+            System.out.println(i+1 + "th hp: " + s.get(i).getHP());
+        }*/
+        
         //initialize moves
             Move v = new Move("void", 0);
             Move sA = new Move("Strong Attack", 2.0);
@@ -33,84 +45,74 @@ public class Reigning extends Application {
         Move.setDefaultMoves(defMoves);//default moves are used for the move buttons in CharacterDisplay.fxml
         
         //initialize instances of characters + their dialog, moves, and items posessed
-        Location encampment = new Location("Encampment", "Your trusty ");//teach you dialog
-            Character e1;
-            switch(getNthDigit(SEED, 3)%2){
-                case 1:
-                    e1 = new Character("Dereque", 0,0,1);
-                    break;
-                default:
-                    e1 = new Character("Cian", 0,0,0);
-            }//teach dialog 
         Location tree = new Location("Tree", "Where does the moon go when it is no longer in our sky?");//teach the plot
             Character t1 = new Character("Ship", 100, 0, 100);//teach dialog + plot (how u landed here)
                 t1.addMove(v);
-            Character t2 = new Character("Mirror", 1000, 0, 100);//teach attacks
+            Character t2 = new Character("Mirror", 14, 0, 1);//teach attacks
+                t2.addMove(v);
+                Dialog t2df = new Dialog("", md(), "You see a mirror. It's around your height. Its glass looks awfully breakable...");
+                    Dialog t2d1 = new Dialog("Try talking to it", md(), "'uh, hello?' you mutter into the silence. There isn't a reply.");
+                    Dialog t2da = new Dialog("", md(), "The mirror shakes, but endures. Your hits would've landed harder");
+                
             //teach items
             tree.add(t1);
-        Location dungeon = new Location("Dungeon", "Here lies the greatest dog cage in the world, containing ten thousand and one dog breeds, all ready to kill.");
-        dungeon.setIsLocked(false);//OVERRIDE WHILE STILL MAKING
-            Character d1 = new Character("Arfendale", 10, 1, 1);
-                //moves
-                d1.addMove(sA);
-                //dialog
-                Dialog d1df = new Dialog(" ", md(), "", "I am Arfendale");//dungeon 1 dialog default
-                    Dialog d1d1 = new Dialog(" ", md(15,15,0,0,0), "'But your shirt looks so nice!'", "'Wait, really?");//dungeon 1 dialog 1
-                        Dialog d1d1d1 = new Dialog("USER EFFECT", md(15,15,0,1,3), "'I mean it!'", "'You're literally the best' */starts crying");//dungeon 1 dialog 1 dialog 1
-                            Dialog d1d1d1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "'I love you <3'");
-                                Dialog d1111df = new Dialog(" ", md(), "", "Hello friend!");
-                                    Dialog d1111d1 = new Dialog("OPPONENT EFFECT", md(200, 200, 200, 5, 3), "I'm not your friend...", "oh... I see...");
-                                    Dialog d1111d2 = new Dialog("EXIT", md(), "not much, see ya!");
-                                    d1111df.addBranch(d1111d1, d1111d2);
-                                d1d1d1d1.addBranch(d1111df);
-                            d1d1d1.addBranch(d1d1d1d1);
-                        Dialog d1d1d2 = new Dialog("OPPONENT EFFECT", md(150,150,100,1,3), "'NO, I hate you!'", "How could you! I trusted you!");
-                        d1d1.addBranch(d1d1d1, d1d1d2);
-                    d1df.addBranch(d1d1);
-                d1.setDialog(d1df);
-                //items
-            Character d2 = new Character("Barktholomew", 3, 1, 2);
-                //moves
-                    d2.addMove(fA);
-                //setBoss
-                    d2.setIsBoss(true);
-            Character d3 = new Character("Jerry", 3, 3, 2);
-            Character d4 = new Character("Jormo", 3, 3, 2);
-            Character dm1 = new Character("St. Lukes", "stLukes");//change pic
-                //dialog
-                Dialog dm1df = new Dialog(" ", md(), "", "You enter a thriving hospise, please keep the damage to a minimum");
-                    Dialog dm1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "Assault the patients", "");
-                        Dialog dm1HIDDENdf = new Dialog(" ", md(), "", "You enter a thriving hospise, for some reason it looks familiar...");
-                        Dialog dm1HIDDENEXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
-                    Dialog dm1HEAL = new Dialog("USER EFFECT", md(5, 0,0,0,0), "+5 HP", "Your soul is weary, but the hospital accepts all. +5 HP");
-                    Dialog dm1EXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
-                            dm1HIDDENdf.addBranch(dm1HEAL, dm1HIDDENEXIT);
-                            dm1HIDDENEXIT.addBranch(dm1HIDDENdf);
-                        dm1EXIT.addBranch(dm1df);
-                        dm1HEAL.addBranch(dm1HEAL, dm1HIDDENEXIT);
-                        dm1d1.addBranch(dm1HIDDENdf);
-                    dm1df.addBranch(dm1d1, dm1HEAL, dm1EXIT);
-                dm1.setDialog(dm1df);
-            dungeon.add(d1, d2, d3, d4, dm1);
+        Location village = new Location("Village", "Here lies the greatest dog cage in the world, containing ten thousand and one dog breeds, all ready to kill.");
+        village.setIsLocked(false);//OVERRIDE WHILE STILL CODING
+            Character v1 = new Character("Arfendale", 10, 1, 1);
+                    //moves
+                        v1.addMove(sA);
+                    //dialog
+                        Dialog v1df = new Dialog(" ", md(), "", "I am Arfendale");//dungeon 1 dialog default
+                            Dialog v1d1 = new Dialog(" ", md(15,15,0,0,0), "'But your shirt looks so nice!'", "'Wait, really?");//dungeon 1 dialog 1
+                                Dialog v1d1d1 = new Dialog("USER EFFECT", md(15,15,0,1,3), "'I mean it!'", "'You're literally the best' */starts crying");//dungeon 1 dialog 1 dialog 1
+                                    Dialog v1d1d1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "'I love you <3'");
+                                        Dialog v1111df = new Dialog(" ", md(), "", "Hello friend!");
+                                            Dialog v1111d1 = new Dialog("OPPONENT EFFECT", md(200, 200, 200, 5, 3), "I'm not your friend...", "oh... I see...");
+                                            Dialog v1111d2 = new Dialog("EXIT", md(), "not much, see ya!");
+                                            v1111df.addBranch(v1111d1, v1111d2);
+                                        v1d1d1d1.addBranch(v1111df);
+                                    v1d1d1.addBranch(v1d1d1d1);
+                                Dialog v1d1d2 = new Dialog("OPPONENT EFFECT", md(150,150,100,1,3), "'NO, I hate you!'", "How could you! I trusted you!");
+                                v1d1.addBranch(v1d1d1, v1d1d2);
+                            v1df.addBranch(v1d1);
+                        v1.setDialog(v1df);
+                    //items
+            Character v2 = new Character("Barktholomew", 3, 1, 2);
+                    //moves
+                        v2.addMove(fA);
+                    //setBoss
+                        v2.setIsBoss(true);
+            Character v3 = new Character("Jerry", 3, 3, 2);
+            Character v4 = new Character("Jormo", 3, 3, 2);
+            Character vm1 = new Character("St. Lukes", "stLukes");//change pic
+                    //dialog
+                        Dialog dm1df = new Dialog(" ", md(), "", "You enter a thriving hospise, please keep the damage to a minimum");
+                            Dialog dm1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "Assault the patients", "");
+                                Dialog dm1HIDDENdf = new Dialog(" ", md(), "", "You enter a thriving hospise, for some reason it looks familiar...");
+                                Dialog dm1HIDDENEXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
+                            Dialog dm1HEAL = new Dialog("USER EFFECT", md(5, 0,0,0,0), "+5 HP", "Your soul is weary, but the hospital accepts all. +5 HP");
+                            Dialog dm1EXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
+                                    dm1HIDDENdf.addBranch(dm1HEAL, dm1HIDDENEXIT);
+                                    dm1HIDDENEXIT.addBranch(dm1HIDDENdf);
+                                dm1EXIT.addBranch(dm1df);
+                                dm1HEAL.addBranch(dm1HEAL, dm1HIDDENEXIT);
+                                dm1d1.addBranch(dm1HIDDENdf);
+                            dm1df.addBranch(dm1d1, dm1HEAL, dm1EXIT);
+                        vm1.setDialog(dm1df);
+            village.add(v1, v2, v3, v4, vm1);
+            Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
         Location castle = new Location("Castle", "A bustling town, domineered by the purest bloodline of cats.");
-            Character jon = new Character("Jon", 3, 1, 1);
+            Character jon = new Character("Barktholomew", 3, 1, 1);
+                    //moves
+                        jon.addMove(sA);
+                    //dialog
+                        jon.setIsBoss(true);
             Character jaob = new Character("Jaob", 2, 2, 1);
             castle.add(jon, jaob);
-        Location tres = new Location("Tres");
-        Location quatro = new Location("Quatro");
-        /*Location dos = new Location
-            Character jams = new Character("Jams", 1, 1, 1);
-            dos.add(jams);
-        Location tres = new Location("Tres");
-            Character jmes = new Character("Jmes", 1, 1, 1);
-            Character jhn = new Character("Jhn", 3, 1, 1);
-            //tres.add(jmes, jhn);
-        Location quatro = new Location("Quatro");
-            Character jems = new Character("Jems", 1, 1, 1);
-            Character jababa = new Character("Jababa", 3, 1, 1);
-            Character jun = new Character("Jun", 1, 1, 1);
-            Character jub = new Character("Jub", 3, 1, 1);
-            quatro.add(jems, jababa, jun, jub);*/
+        
+        //initialize final boss
+        Character human = new Character("human", 73, 19, 4);
+        Character.addRelevantCharacter(human);//adding enemy as a relevant character
         
         //initialize user's character
         Character user = new Character("User", 10, 1, 1);
@@ -122,95 +124,19 @@ public class Reigning extends Application {
             ic1.setType("consume");
         Item ic2 = new Item("uno stick");
         Item ic3 = new Item("Defense potion", -1, 0.0, 0.0, 0.0, 10.0, 0);
-        /*Item ic4 = new Item("tres stick");
-        Item ic5 = new Item("quatro stick");
-        Item ic6 = new Item("cinco stick");
-        Item ic7 = new Item("seis stick");
-        Item ic8 = new Item("siete stick");*/
         Item ic9 = new Item("Strength potion", -1, 0.0, 0.0, 6.0, 0.0, 0);
         Item ic10 = new Item("2 turn turtle", 2, "turtlePot", 0.0, 0.0, 0.0, 7.0, 0);
         Item ic11 = new Item("the sandwich", 4, 7.0, 2.0, 7.0, 5.0, 2);
         user.addItem(ic1, ic2, ic3, ic9);
-        //user.addItem(ic4, ic5, ic6, ic7, ic8, ic9, ic10);//, ic7, ic8, ic9, ic10);
         user.addItem(ic1, 5);
         
-        d1.addItem(ic10, ic11, ic11, ic11, ic2);
+            //TESTING ITEM FUNCTIONS
+        /*d1.addItem(ic10, ic11, ic11, ic11, ic2);
         d1.giveItem(0, user);
         d1.removeItem(0);
         d1.giveItem(0, user);
         d1.removeItem(ic11);
-        d1.giveItem(0, user);
-        
-        
-    //SCENARIO 1: Opening map , and character
-      //start game 
-        /*Location currentLoc = null;
-        Character currentOpp = null;
-    
-        Location qc = new Location("QC");
-        Character john = new Character("John", 1.0, 1.0); 
-        qc.add(john);
-    
-        Location manila = new Location("Manila");
-    
-        qc.unlock();
-
-        //display all loc options
-        /*System.out.println(qc.getName());
-        System.out.println(manila.getName());*/
-        /*//user input: pick qc as location option
-        currentLoc = qc;*/
-
-        //display qc's options
-        /*System.out.println(john.getName());
-        System.out.println("healing station");
-        System.out.println("back");*/
-        //user input: pick john as Character option
-        /* = john;
-
-    //SCENARIO 2: Fight, losing
-        Move pMove, oMove; //pMove = player move, oMove = opponent move
-        Move sA = new Move("strongAttack", 2.0);
-        Move fA = new Move("fastAttack", 1.0, sA);
-        Move b = new Move("block", 1.0, fA);
-        sA.setStrongAgainst(fA);
-        Character user = new Character("user", 1.0, 1.0);
-        currentOpp = john; //fight with John begins
-
-        //user input: use Move: strongAttack
-        pMove = sA;
-        //obtained from opponents atkPattern (currentOpp.getMove()): use Move: fastAttack
-        oMove = fA;
-        //fastAttack is stronger against strongAttack, so opponent's atk * fastAttack's multiplier will be done on user (currentOpp.performMove(user)):
-        user.addHP(-3.0);
-
-        //user health is zero, so:
-        //John wins!
-        //fight over 
-    //SCENARIO 3: Fight, using item, win
-        Item strPot = new Item("Strength potion", 1, 0, 3);
-        Item hPot = new Item("Health potion", 1, 3, 0);
-
-        currentOpp = john*/
-
-        //user input: open Inventory
-        //display Inventory
-        /*System.out.println(strPot.getName());
-        System.out.println(strPot.getName());*/
-        //user input: use Item: strength potion
-        /*user.addAtk(3.0);
-        //user.getInventory().remove(strPot);
-
-        //user input: use Move: strongAttack
-        pMove = sA;
-        //obtained from opponent's atkPattern: uses Move: block
-        oMove = fA;
-        //strongAttack is stronger against block, so 4 * 2 = 8:
-        currentOpp.addHP(-8.0);*/
-
-        //opponent health is zero, so:
-        //User wins!
-        //fight over
+        d1.giveItem(0, user);*/
         
         //run menu.fxml file
         
@@ -243,9 +169,6 @@ public class Reigning extends Application {
         return digit;
     }
     
-    public void fightBoss(){
-        
-    }
     public static FXMLLoader openFXML(String name, Event e, Class className) throws IOException{
         FXMLLoader loader = null;
         try{
@@ -266,6 +189,24 @@ public class Reigning extends Application {
         }
         return loader;
     }
+    
+    public static void setFinalBoss() {
+        //lock all locations
+        for(Location l : Location.getLocationList()){
+            l.setIsLocked(true);
+        }
+        //unlock tree
+        Location tree = Location.getLocationList().get(0);
+        tree.setIsLocked(false);
+        //change population
+        tree.getPopulation().clear();
+        tree.getPopulation().add(Character.getRelevantCharacters().get(0));//st lukes
+        tree.getPopulation().add(Character.getRelevantCharacters().get(1));//enemy
+        //change image + FlavorText
+        tree.setImgFileName("evil_tree");
+        tree.setFlavorText("The tree... calls...");
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }

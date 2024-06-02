@@ -160,9 +160,15 @@ public class CharacterDisplayController implements Initializable {
                         index++;
                         if(l.getPopulation().contains(opp)) break;
                     }
-                    Location newLoc = Location.getLocationList().get(index);
-                    newLoc.setIsLocked(false);
-                    addDialogSaid("New Location Found: See " + newLoc.getName() + " in the Map!");
+                    try{
+                        Location newLoc = Location.getLocationList().get(index);
+                        newLoc.setIsLocked(false);
+                        addDialogSaid("New Location Found: See " + newLoc.getName() + " in the Map!");
+                    }
+                    catch(IndexOutOfBoundsException e){
+                        Reigning.setFinalBoss();
+                        addDialogSaid("Return to the tree, it calls to you...");
+                    }
                 }
                 break;
             case 2:
@@ -399,6 +405,20 @@ public class CharacterDisplayController implements Initializable {
     }
     public void addDialogSaid(String s){
         dialogText.setText(s + "\n\n" + dialogText.getText());
+    }
+    private void displayMovesInDialogSaid(Move o, Move u){
+        addDialogSaid(opp.getName() + " used " + o.getName() + ", You used " + u.getName());
+        String msg = "";
+        if(u.getStrongAgainst() == o){
+            msg = "You are stronger!";
+        }
+        else if(o.getStrongAgainst() == u){
+            msg = opp.getName() + " is stronger!";
+        }
+        else{
+            msg = "You perform the same move!";
+        }
+        addDialogSaid(msg);
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

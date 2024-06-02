@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Location{
     private String name, flavorText, imgFileName;
-    public ArrayList<Character> population;
+    private ArrayList<Character> population;
     private boolean isLocked;
     private static ArrayList<Location> locationList = new ArrayList<Location>();
 
@@ -61,6 +61,12 @@ public class Location{
         //stats
     public void setIsLocked(boolean b){
         this.isLocked = b;
+    }
+    public void setImgFileName(String ifn){
+        imgFileName = ifn;
+    }
+    public void setFlavorText(String f){
+        flavorText = f;
     }
         //population
     public void add(Character c){

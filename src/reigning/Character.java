@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class Character{
     
     private static Character user;
+    private static ArrayList<Character> relevant = new ArrayList<>();
     
     private String name, imgFileName;
     private double hp, maxHP, atk, def;
@@ -140,6 +141,9 @@ public class Character{
     public static Character getUser(){
         return user;
     }
+    public static ArrayList<Character> getRelevantCharacters(){
+        return relevant;
+    }
         //image icon
     public String getImgFileName(){
         return imgFileName;
@@ -217,6 +221,9 @@ public class Character{
         //static
     public static void setUser(Character u){
         user = u;
+    }
+    public static void addRelevantCharacter(Character c){
+        relevant.add(c);
     }
         //moves
     public void addMove(Move m){
