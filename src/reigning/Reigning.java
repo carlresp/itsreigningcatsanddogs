@@ -43,9 +43,9 @@ public class Reigning extends Application {
                     e1 = new Character("Cian", 0,0,0);
             }//teach dialog 
         Location tree = new Location("Tree", "Where does the moon go when it is no longer in our sky?");//teach the plot
-            Character t1 = new Character("Bob", 100, 0, 100);//teach attack
+            Character t1 = new Character("Ship", 100, 0, 100);//teach dialog + plot (how u landed here)
                 t1.addMove(v);
-            //teach attacks
+            Character t2 = new Character("Mirror", 1000, 0, 100);//teach attacks
             //teach items
             tree.add(t1);
         Location dungeon = new Location("Dungeon", "Here lies the greatest dog cage in the world, containing ten thousand and one dog breeds, all ready to kill.");

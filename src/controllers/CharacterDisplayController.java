@@ -361,14 +361,12 @@ public class CharacterDisplayController implements Initializable {
         if(opp.getAttackedDialog()==null) return;//if no existing attacked dialog
         Dialog d = opp.getAttackedDialog();
         pickDialog(d);
-        
-        if(d.getAttackedDialog()==null) return;//if no attackedDialog to replace this one
-        opp.setAttackedDialog(d.getAttackedDialog());
     }
     public void pickDialog(Dialog d){
         addDialogSaid(d.getReply());
         setCharacter();
         setDialogsOptions(d);
+        if(d.getAttackedDialog()==null) return;//if no attackedDialog to replace this one
         opp.setAttackedDialog(d.getAttackedDialog());
     }
     public void clearDialogOptions(){
