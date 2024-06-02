@@ -114,7 +114,7 @@ public class LocationDisplayController implements Initializable {
                     b.setDisable(false);
                     b.setDisable(character.getIsLocked());
                     if(Character.getUser().getHP()==0 && !character.getIsMonument()) b.setDisable(true);
-                    ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/imgs/characters/"+ character.getImgFileName())));
+                    ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/imgs/characters/"+ character.getImgFileName()+".png")));
                         img.setPreserveRatio(true); // This ensures the image maintains its aspect ratio
                         img.setFitWidth(150); // Set the maximum width
                         img.setFitHeight(150); // Set the maximum height    

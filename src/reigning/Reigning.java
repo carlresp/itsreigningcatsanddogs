@@ -76,7 +76,7 @@ public class Reigning extends Application {
                     d2.setIsBoss(true);
             Character d3 = new Character("Jerry", 3, 3, 2);
             Character d4 = new Character("Jormo", 3, 3, 2);
-            Character dm1 = new Character("St. Lukes", "stLukes.png");//change pic
+            Character dm1 = new Character("St. Lukes", "stLukes");//change pic
                 //dialog
                 Dialog dm1df = new Dialog(" ", md(), "", "You enter a thriving hospise, please keep the damage to a minimum");
                     Dialog dm1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "Assault the patients", "");
@@ -128,7 +128,7 @@ public class Reigning extends Application {
         Item ic7 = new Item("seis stick");
         Item ic8 = new Item("siete stick");*/
         Item ic9 = new Item("Strength potion", -1, 0.0, 0.0, 6.0, 0.0, 0);
-        Item ic10 = new Item("2 turn turtle", 2, "turtlePot.png", 0.0, 0.0, 0.0, 7.0, 0);
+        Item ic10 = new Item("2 turn turtle", 2, "turtlePot", 0.0, 0.0, 0.0, 7.0, 0);
         Item ic11 = new Item("the sandwich", 4, 7.0, 2.0, 7.0, 5.0, 2);
         user.addItem(ic1, ic2, ic3, ic9);
         //user.addItem(ic4, ic5, ic6, ic7, ic8, ic9, ic10);//, ic7, ic8, ic9, ic10);

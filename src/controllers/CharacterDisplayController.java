@@ -100,7 +100,7 @@ public class CharacterDisplayController implements Initializable {
         rHpLvl.setProgress(d);
         //set img
         try{
-            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()+"_hq.png"));
             rImg.setImage(img);
         }
         catch(NullPointerException e){

@@ -29,7 +29,7 @@ public class Character{
         this.isLocked = false;
         this.isMonument = false;
         //image
-        this.imgFileName = name.toLowerCase() + ".png";
+        this.imgFileName = name.toLowerCase();
         //inventory
         this.inventory = new ArrayList<>();
         this.amountIndex = new ArrayList<>();
