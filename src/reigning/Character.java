@@ -1,5 +1,6 @@
 package reigning;
 
+import controllers.CharacterDisplayController;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -326,7 +327,7 @@ public class Character{
         if(isDead(user)) return 2;//user lost
         return 0;//still fighting
     }
-    public static void commenceTurn(Character user, Character opp, int turn){
+    public static void commenceTurn(Character user, Character opp, int turn, CharacterDisplayController cdc){
         Move u = user.getMove(0);
         Move o = opp.getMove(turn);
         
@@ -340,6 +341,8 @@ public class Character{
             u.tieEffect(opp, user);
             o.tieEffect(user, opp);
         }
+        
+        cdc.displayMovesInDialogSaid(o, u);
     }
     public static boolean isDead(Character c){
         if(c.getHP()==0.0) return true;

@@ -136,7 +136,7 @@ public class CharacterDisplayController implements Initializable {
         if(bText.equals(m3.getName())) user.addMove(m3);
         
         //commence turn
-        Character.commenceTurn(user, opp, turn);
+        Character.commenceTurn(user, opp, turn, this);
         updateInUse();//update time limited items
         setCharacter();//display stats
         checkIfDead();
@@ -406,17 +406,16 @@ public class CharacterDisplayController implements Initializable {
     public void addDialogSaid(String s){
         dialogText.setText(s + "\n\n" + dialogText.getText());
     }
-    private void displayMovesInDialogSaid(Move o, Move u){
-        addDialogSaid(opp.getName() + " used " + o.getName() + ", You used " + u.getName());
-        String msg = "";
+    public void displayMovesInDialogSaid(Move o, Move u){
+        String msg = opp.getName() + " used " + o.getName() + ", You used " + u.getName() +".";
         if(u.getStrongAgainst() == o){
-            msg = "You are stronger!";
+            msg += "\n\nYou are stronger!";
         }
         else if(o.getStrongAgainst() == u){
-            msg = opp.getName() + " is stronger!";
+            msg += "\n\n"+opp.getName() + " is stronger!";
         }
         else{
-            msg = "You perform the same move!";
+            msg += "\n\nYou perform the same move!";
         }
         addDialogSaid(msg);
     }

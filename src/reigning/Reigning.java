@@ -20,18 +20,6 @@ public class Reigning extends Application {
         final int SEEDLENGTH = 4, SEED = random.nextInt((int)Math.pow(10, SEEDLENGTH)); // Generates a random number between 0 (inclusive) and 1000 (exclusive)
         System.out.println("Seed: " + SEED);
         
-        //TESTING INSTANCE BEHAVIOR
-        /*Character jaden = new Character("jaden", 100, 0,0);
-        ArrayList<Character> s = new ArrayList<>();
-        s.add(jaden);
-        s.add(jaden);
-        s.add(jaden);
-        s.get(0).damage(-20);
-            System.out.println("\n\n");
-        for(int i=0; i<3;i++){
-            System.out.println(i+1 + "th hp: " + s.get(i).getHP());
-        }*/
-        
         //initialize moves
             Move v = new Move("void", 0);
             Move sA = new Move("Strong Attack", 2.0);
@@ -100,7 +88,6 @@ public class Reigning extends Application {
                             dm1df.addBranch(dm1d1, dm1HEAL, dm1EXIT);
                         vm1.setDialog(dm1df);
             village.add(v1, v2, v3, v4, vm1);
-            Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
         Location castle = new Location("Castle", "A bustling town, domineered by the purest bloodline of cats.");
             Character jon = new Character("Barktholomew", 3, 1, 1);
                     //moves
@@ -112,7 +99,11 @@ public class Reigning extends Application {
         
         //initialize final boss
         Character human = new Character("human", 73, 19, 4);
+
+        //initialize relevant characters
+        Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
         Character.addRelevantCharacter(human);//adding enemy as a relevant character
+        Character.addRelevantCharacter(t2);//adding mirror as a relevant character
         
         //initialize user's character
         Character user = new Character("User", 10, 1, 1);
