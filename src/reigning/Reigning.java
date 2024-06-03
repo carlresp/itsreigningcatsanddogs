@@ -36,7 +36,7 @@ public class Reigning extends Application {
         Location tree = new Location("Tree", "Where does the moon go when it is no longer in our sky?");//teach the plot
             Character t1 = new Character("Ship", 100, 0, 100);//teach dialog + plot (how u landed here)
                 t1.addMove(v);
-            Character t2 = new Character("Mirror", 14, 0, 1);//teach attacks
+            Character t2 = new Character("Window", 14, 0, 1);//teach attacks
                 t2.addMove(v);
                 Dialog t2df = new Dialog("", md(), "You see a mirror. It's around your height. Its glass looks awfully breakable...");
                     Dialog t2d1 = new Dialog("Try talking to it", md(), "'uh, hello?' you mutter into the silence. There isn't a reply.");
@@ -49,6 +49,7 @@ public class Reigning extends Application {
             Character v1 = new Character("Arfendale", 10, 1, 1);
                     //moves
                         v1.addMove(sA);
+                        v1.addMove(fA);
                     //dialog
                         Dialog v1df = new Dialog(" ", md(), "", "I am Arfendale");//dungeon 1 dialog default
                             Dialog v1d1 = new Dialog(" ", md(15,15,0,0,0), "'But your shirt looks so nice!'", "'Wait, really?");//dungeon 1 dialog 1
@@ -71,7 +72,7 @@ public class Reigning extends Application {
                     //setBoss
                         v2.setIsBoss(true);
             Character v3 = new Character("Jerry", 3, 3, 2);
-            Character v4 = new Character("Jormo", 3, 3, 2);
+            Character v4 = new Character("Kebby", 17, 5, 2);
             Character vm1 = new Character("St. Lukes", "stLukes");//change pic
                     //dialog
                         Dialog dm1df = new Dialog(" ", md(), "", "You enter a thriving hospise, please keep the damage to a minimum");
@@ -98,11 +99,11 @@ public class Reigning extends Application {
             castle.add(jon, jaob);
         
         //initialize final boss
-        Character human = new Character("human", 73, 19, 4);
+        Character end = new Character("end", 73, 19, 4);
 
         //initialize relevant characters
         Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
-        Character.addRelevantCharacter(human);//adding enemy as a relevant character
+        Character.addRelevantCharacter(end);//adding enemy as a relevant character
         Character.addRelevantCharacter(t2);//adding mirror as a relevant character
         
         //initialize user's character

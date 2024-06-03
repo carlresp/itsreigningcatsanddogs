@@ -79,7 +79,7 @@ public class CharacterDisplayController implements Initializable {
         lHpLvl.setProgress(d);
         //set img
         try{
-            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()));
+            Image img = new Image(getClass().getResourceAsStream("/imgs/characters/" + c.getImgFileName()+"_hq.png"));
             lImg.setImage(img);
         }
         catch(NullPointerException e){
@@ -88,7 +88,6 @@ public class CharacterDisplayController implements Initializable {
         }
     }
     private void setRight(Character c){
-        System.out.print("printin "+c.getName());
         rName.setText(c.getName());//set name
         //set stats
         rLvl.setText(""+(int)c.getLvl());

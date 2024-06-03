@@ -6,6 +6,9 @@ import java.util.Arrays;
 
 public class Character{
     
+    /**
+     * represents the user
+     */
     private static Character user;
     private static ArrayList<Character> relevant = new ArrayList<>();
     
@@ -342,7 +345,7 @@ public class Character{
             o.tieEffect(user, opp);
         }
         
-        cdc.displayMovesInDialogSaid(o, u);
+        if(!"void".equals(o.getName())) cdc.displayMovesInDialogSaid(o, u);
     }
     public static boolean isDead(Character c){
         if(c.getHP()==0.0) return true;
