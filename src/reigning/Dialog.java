@@ -53,7 +53,7 @@ public class Dialog {
     public void addBranch(Dialog... list){
         this.branch.addAll(Arrays.asList(list));
     }
-    public void setAttackdDialog(Dialog d){
+    public void setAttackedDialog(Dialog d){
         attackedDialog = d;
     }
     

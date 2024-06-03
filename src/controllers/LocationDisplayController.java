@@ -112,7 +112,7 @@ public class LocationDisplayController implements Initializable {
 
                     //set image
                     b.setDisable(false);
-                    b.setDisable(character.getIsLocked());
+                    //b.setDisable(character.getIsLocked());
                     if(Character.getUser().getHP()==0 && !character.getIsMonument()) b.setDisable(true);
                     ImageView img = new ImageView(new Image(getClass().getResourceAsStream("/imgs/characters/"+ character.getImgFileName()+".png")));
                         img.setPreserveRatio(true); // This ensures the image maintains its aspect ratio
@@ -173,6 +173,7 @@ public class LocationDisplayController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         page = 0;
         currentLoc = Location.getLocationList().get(0);
+        if(currentLoc!=null)setArrayOfChars();
         //setLocation(currentLoc);
         // Load the custom font file
         //Font arcadeClassic = Font.loadFont(getClass().getResourceAsStream("/imgs/ARCADECLASSIC.ttf"), 12);

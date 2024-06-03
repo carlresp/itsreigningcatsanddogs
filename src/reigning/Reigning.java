@@ -33,19 +33,47 @@ public class Reigning extends Application {
         Move.setDefaultMoves(defMoves);//default moves are used for the move buttons in CharacterDisplay.fxml
         
         //initialize instances of characters + their dialog, moves, and items posessed
-        Location tree = new Location("Tree", "Where does the moon go when it is no longer in our sky?");//teach the plot
+        Location tree = new Location("Tree", "The light of the clearing blinds you. You realize, you can't remember even your name. Where are you?");//teach the plot
             Character t1 = new Character("Ship", 100, 0, 100);//teach dialog + plot (how u landed here)
-                t1.addMove(v);
-            Character t2 = new Character("Window", 14, 0, 1);//teach attacks
-                t2.addMove(v);
-                Dialog t2df = new Dialog("", md(), "You see a mirror. It's around your height. Its glass looks awfully breakable...");
-                    Dialog t2d1 = new Dialog("Try talking to it", md(), "'uh, hello?' you mutter into the silence. There isn't a reply.");
-                    Dialog t2da = new Dialog("", md(), "The mirror shakes, but endures. Your hits would've landed harder");
+                //dialog
+                    Dialog t1df = new Dialog(" ", md(), " ","This is the ship you own, embedded into the tree of this strange place.");
+                        Dialog t1d1 = new Dialog(" ", md(), "Walk closer", "You see the damage that has been done to your ship. As you enter, you feel memories race into your mind.");
+                            Dialog t1d1d1 = new Dialog(" ", md(), "Inspect damage", "There seems to be a massive hole at the side of the ship. How did you survive?");
+                                Dialog t1d1d1d1 = new Dialog(" ", md(), "Wait, there are flowers...", "You see the glow of the unusual plants, like the tree itself.");
+                                    Dialog t1_d1 = new Dialog("USER EFFECT", md(5,5,0,0,0), "Touch the flowers", "Upon contact, the flowers fill you with energy. You feel... refreshed. +5 Max HP");
+                                    Dialog t1_d2 = new Dialog("EXIT WITHOUT DISABLING", md(), "Walk away...", " ");
+                                        Dialog t1d2 = new Dialog("EXIT WITHOUT DISABLING", md(), " ", "Yup, that's your ship.");
+                                        t1d2.addBranch(t1d2);
+                                    t1_d2.addBranch(t1d2);
+                                    t1_d1.addBranch(t1_d2);
+                                t1d1d1d1.addBranch(t1_d1, t1_d2);
+                            t1d1d1.addBranch(t1d1d1d1);
+                        t1d1.addBranch(t1d1d1);
+                    t1df.addBranch(t1d1);
+                    t1.setDialog(t1df);
+            Character t2 = new Character("Window", 4, 0, 0);//teach attacks
+                //move
+                    t2.addMove(v);
+                //dialog
+                    Dialog t2df = new Dialog(" ", md(), " ", "You see a mirror. It's around your height. Its glass looks awfully breakable...");
+                        Dialog t2d1 = new Dialog(" ", md(), "Try talking to it","'uh, hello?' you mutter into the silence. There isn't a reply.");
+                        Dialog t2da = new Dialog(" ", md(), " ", "The mirror shakes, but endures. Your hits would've landed harder");
+                            Dialog t2da1 = new Dialog(" ", md(), " ", "Your reflection stares at you.");
+                                Dialog t2da2 = new Dialog(" ", md(), " ", "'Hit harder.'");
+                                    Dialog t2da3 = new Dialog(" ", md(), " ", "You endure.");
+                                t2da2.setAttackedDialog(t2da3);
+                            t2da1.setAttackedDialog(t2da2);
+                        t2da.setAttackedDialog(t2da1);
+                        t2df.addBranch(t2d1);
+                    t2.setDialog(t2df);
+                    t2.setAttackedDialog(t2da);
+                //set boss
+                    t2.setIsBoss(true);
                 
             //teach items
-            tree.add(t1);
+            tree.add(t1, t2);
         Location village = new Location("Village", "Here lies the greatest dog cage in the world, containing ten thousand and one dog breeds, all ready to kill.");
-        village.setIsLocked(false);//OVERRIDE WHILE STILL CODING
+        //village.setIsLocked(false);//OVERRIDE WHILE STILL CODING
             Character v1 = new Character("Arfendale", 10, 1, 1);
                     //moves
                         v1.addMove(sA);
@@ -66,21 +94,19 @@ public class Reigning extends Application {
                             v1df.addBranch(v1d1);
                         v1.setDialog(v1df);
                     //items
-            Character v2 = new Character("Barktholomew", 3, 1, 2);
+            Character v2 = new Character("Kebby", 3, 1, 2);
                     //moves
                         v2.addMove(fA);
                     //setBoss
                         v2.setIsBoss(true);
-            Character v3 = new Character("Jerry", 3, 3, 2);
-            Character v4 = new Character("Kebby", 17, 5, 2);
             Character vm1 = new Character("St. Lukes", "stLukes");//change pic
                     //dialog
-                        Dialog dm1df = new Dialog(" ", md(), "", "You enter a thriving hospise, please keep the damage to a minimum");
+                        Dialog dm1df = new Dialog("DISABLE MOVES", md(), "", "You enter a thriving hospise, with a familiar glow. Please keep the damage to a minimum.");
                             Dialog dm1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "Assault the patients", "");
                                 Dialog dm1HIDDENdf = new Dialog(" ", md(), "", "You enter a thriving hospise, for some reason it looks familiar...");
-                                Dialog dm1HIDDENEXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
+                                Dialog dm1HIDDENEXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "EXIT", "");
                             Dialog dm1HEAL = new Dialog("USER EFFECT", md(5, 0,0,0,0), "+5 HP", "Your soul is weary, but the hospital accepts all. +5 HP");
-                            Dialog dm1EXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "", "");
+                            Dialog dm1EXIT = new Dialog("EXIT WITHOUT DISABLING", md(), "EXIT", "");
                                     dm1HIDDENdf.addBranch(dm1HEAL, dm1HIDDENEXIT);
                                     dm1HIDDENEXIT.addBranch(dm1HIDDENdf);
                                 dm1EXIT.addBranch(dm1df);
@@ -88,7 +114,7 @@ public class Reigning extends Application {
                                 dm1d1.addBranch(dm1HIDDENdf);
                             dm1df.addBranch(dm1d1, dm1HEAL, dm1EXIT);
                         vm1.setDialog(dm1df);
-            village.add(v1, v2, v3, v4, vm1);
+            village.add(v1, v2, vm1);
         Location castle = new Location("Castle", "A bustling town, domineered by the purest bloodline of cats.");
             Character jon = new Character("Barktholomew", 3, 1, 1);
                     //moves
@@ -100,6 +126,15 @@ public class Reigning extends Application {
         
         //initialize final boss
         Character end = new Character("end", 73, 19, 4);
+            //moves
+                end.addMove(sA);
+                end.addMove(b);
+                end.addMove(sA);
+                end.addMove(b);
+                end.addMove(sA);
+                end.addMove(fA);
+                end.addMove(sA);
+                end.addMove(fA);
 
         //initialize relevant characters
         Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
