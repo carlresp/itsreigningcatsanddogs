@@ -302,7 +302,6 @@ public class InventoryDisplayController implements Initializable {
         try{
             Character u = cdc.getUser();
             int size = u.getInventory().size();
-            System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSS"+size);
             int numOfPages = (size-1)/SIZE;
             if(page==0) prevBtn.setDisable(true);
             else prevBtn.setDisable(false);

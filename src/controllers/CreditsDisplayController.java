@@ -38,6 +38,7 @@ public class CreditsDisplayController implements Initializable {
 "- Story Writer: Dela Cruz - Falcon\n" +
 "- Visual Artist: Dela Cruz\n" +
 "- All inventory icons created in Canva\n" +
+"- Premium Photo | Pixel art medieval village middle age houses village with castle background for 8 bit game AI [AI-Generated Photograph]. (2023, August 16). Freepik. https://www.freepik.com/premium-ai-image/pixel-art-medieval-village-middle-age-houses-village-with-castle-background-8-bit-game-ai_61347386.htm\n" +
 "- Credits temp content writer: Ecosia AI chat\n" +
 "\n" +
 "Special Thanks:\n" +

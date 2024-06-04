@@ -177,7 +177,7 @@ public class Reigning extends Application {
                             c2d1.addBranch(c2d1d1);
                         c2df.addBranch(c2d1);
                         c2.setDialog(c2df);
-                        castle.setIsLocked(false);
+                        //castle.setIsLocked(false);
                     //set boss
                         c2.setIsBoss(true);
             castle.add(new Character("Chescat", 1,4,3), c1, c2);
@@ -193,7 +193,15 @@ public class Reigning extends Application {
                 end.addMove(fA);
                 end.addMove(sA);
                 end.addMove(fA);
-
+            //dialog
+                Dialog e1df = new Dialog(" ", md(), " ", "A menacing figure walks your way, 'It's about time you've come to your senses... I can't believe its taken you this long to notice how I've been moving in the shadows silently, waiting for the perfect time to strike!'");
+                    Dialog e1d1 = new Dialog(" ", md(), "No way", "'I refuse to be beaten by you, whatever you are!' you say, as the winds pick up until the hollow roar of the gales berate your ears.");
+                    Dialog e1d2 = new Dialog(" ", md(), "Enshrine", "You attempt to battle, but he mirrors you one to one. 'Heh, better luck next time I guess. Now's the time has almost come for me to banish you in this world FOREVER! It's quite unfortunate that only one of us will be able to escape this horror of felines and canines...'");
+                    Dialog e1d3 = new Dialog(" ", md(), "Reribution", "The one who will receive punishment is you!");
+                end.setDialog(e1df);
+                e1df.addBranch(e1d1);
+                e1d1.addBranch(e1d2);
+                e1d2.addBranch(e1d3);
         //initialize relevant characters
         Character.addRelevantCharacter(vm1);//adding st lukes as a relevant character
         Character.addRelevantCharacter(end);//adding enemy as a relevant character

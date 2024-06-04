@@ -153,6 +153,7 @@ public class CharacterDisplayController implements Initializable {
                 break;
             case 1:
                 addDialogSaid("You won!");
+                if(opp == Character.getRelevantCharacters().get(1)) addDialogSaid("To be continued...");
                 if(opp.getIsBoss()){
                     int index = 0;
                     for(Location l : Location.getLocationList()){
