@@ -174,7 +174,7 @@ public class InventoryDisplayController implements Initializable {
             //error
         }
         //set image
-        displayImage.setImage(new Image(this.getClass().getResourceAsStream("/imgs/characters/" + cdc.getUser().getImgFileName())));
+        displayImage.setImage(new Image(this.getClass().getResourceAsStream("/imgs/characters/user_hq.png")));
     }
     private void setItem(Item i, int pos, int amt){//pos must be 0 to 8
         //find pos
@@ -184,7 +184,7 @@ public class InventoryDisplayController implements Initializable {
         
         //setting item
             //image
-        Image img = new Image(getClass().getResourceAsStream("/imgs/items/"+i.getImgFileName()));//get image of item
+        Image img = new Image(getClass().getResourceAsStream("/imgs/items/"+i.getImgFileName()+".png"));//get image of item
         ImageView imgView = (ImageView) getChildByColRowIndex(x, 2*y, itemGrid);
         imgView.setImage(img);
         //imgView.setStyle("-fx-border-color: black; -fx-border-width: 2px;");
@@ -302,6 +302,7 @@ public class InventoryDisplayController implements Initializable {
         try{
             Character u = cdc.getUser();
             int size = u.getInventory().size();
+            System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSS"+size);
             int numOfPages = (size-1)/SIZE;
             if(page==0) prevBtn.setDisable(true);
             else prevBtn.setDisable(false);

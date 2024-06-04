@@ -37,6 +37,7 @@ public class CreditsDisplayController implements Initializable {
 "- Project Manager: Dela Cruz\n" +
 "- Story Writer: Dela Cruz - Falcon\n" +
 "- Visual Artist: Dela Cruz\n" +
+"- All inventory icons created in Canva\n" +
 "- Credits temp content writer: Ecosia AI chat\n" +
 "\n" +
 "Special Thanks:\n" +

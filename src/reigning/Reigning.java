@@ -37,7 +37,7 @@ public class Reigning extends Application {
             Character t1 = new Character("Ship", 100, 0, 100);//teach dialog + plot (how u landed here)
                 //dialog
                     Dialog t1df = new Dialog(" ", md(), " ","This is the ship you own, embedded into the tree of this strange place.");
-                        Dialog t1d1 = new Dialog(" ", md(), "Walk closer", "You see the damage that has been done to your ship. As you enter, you feel memories race into your mind.");
+                        Dialog t1d1 = new Dialog("DISABLE MOVES", md(), "Walk closer", "You see the damage that has been done to your ship. As you enter, you feel memories race into your mind.");
                             Dialog t1d1d1 = new Dialog(" ", md(), "Inspect damage", "There seems to be a massive hole at the side of the ship. How did you survive?");
                                 Dialog t1d1d1d1 = new Dialog(" ", md(), "Wait, there are flowers...", "You see the glow of the unusual plants, like the tree itself.");
                                     Dialog t1_d1 = new Dialog("USER EFFECT", md(5,5,0,0,0), "Touch the flowers", "Upon contact, the flowers fill you with energy. You feel... refreshed. +5 Max HP");
@@ -94,12 +94,25 @@ public class Reigning extends Application {
                             v1df.addBranch(v1d1);
                         v1.setDialog(v1df);
                     //items
-            Character v2 = new Character("Kebby", 3, 1, 2);
+            Character v2 = new Character("Kebby", 30, 1, 2);
                     //moves
                         v2.addMove(fA);
+                        v2.addMove(fA);
+                        v2.addMove(sA);
+                    //dialog
+                        Dialog v2df = new Dialog(" ", md(), "", "'You look tired!' says the conductor, 'why don't you rest in my train, stranger!");
+                            Dialog v2d1 = new Dialog(" ", md(), "It's a trap", "'Sigh... all humans are the same. Distrustful and corrupted to the core.");
+                            Dialog v2d2 = new Dialog(" ", md(), "Enter the train", "'Come, come! Let me offer you a drink.'");
+                                Dialog v2d2d1 = new Dialog("USER EFFECT", md(15,15,0,1,3), "Take drink", "The conductor smiles, 'Say, do you want to get to the castle up East?'");
+                                    Dialog v2d1d1 = new Dialog("OPPONENT EFFECT", md(-400,0,0,0,0), "'Gladly!'", "Cheers!");
+                                    v2d2d1.addBranch(v2d1d1);
+                                v2d2.addBranch(v2d2d1);
+                                //Dialog v2d2d2 = new Dialog("OPPONENT EFFECT", md(150,150,100,1,3), "'I don't want to.'", "'Of course you don't,' the conductor smiles.");
+                            v2df.addBranch(v2d1, v2d2);
+                        v2.setDialog(v2df);
                     //setBoss
                         v2.setIsBoss(true);
-            Character vm1 = new Character("St. Lukes", "stLukes");//change pic
+            Character vm1 = new Character("St. Lukes", "stLukes");
                     //dialog
                         Dialog dm1df = new Dialog("DISABLE MOVES", md(), "", "You enter a thriving hospise, with a familiar glow. Please keep the damage to a minimum.");
                             Dialog dm1d1 = new Dialog("EXIT WITHOUT DISABLING", md(), "Assault the patients", "");
@@ -116,13 +129,58 @@ public class Reigning extends Application {
                         vm1.setDialog(dm1df);
             village.add(v1, v2, vm1);
         Location castle = new Location("Castle", "A bustling town, domineered by the purest bloodline of cats.");
-            Character jon = new Character("Barktholomew", 3, 1, 1);
+            Character c1 = new Character("Crispy", 100, 1, 5);
                     //moves
-                        jon.addMove(sA);
+                        c1.addMove(sA);
+                        c1.addMove(fA);
+                        c1.addMove(b);
                     //dialog
-                        jon.setIsBoss(true);
-            Character jaob = new Character("Jaob", 2, 2, 1);
-            castle.add(jon, jaob);
+                        Dialog c1df = new Dialog(" ", md(), "", "'Pic! For the last time, I can't do this,' the voice of a detective reaches your ears, but you don't know what she's talking about.");
+                            Dialog c1d1 = new Dialog(" ", md(), "Ask", "'Pic?' you ask. She looks over at you, 'oh, you're new.' Instantly, you felt her gaze analyze every inch of you");
+                                Dialog c1d1d1 = new Dialog(" ", md(), "'I'm the new intern!'", "She stares at you for a good half hour. 'Do you take me for a fool?' Roll initiative.");
+                                    Dialog c1d1d1a = new Dialog(" ", md(), " ", "'Heh, nice hit,' as she spits on your face and deliver a flurry of blows. You are left to fight for yourself.");
+                                    c1d1d1.setAttackedDialog(c1d1d1a);
+                                Dialog c1d1d2 = new Dialog(" ", md(), "Apologize", "'I'm sorry, I'm lost...' you say, lowering your head. She studies you for another moment. Finally, she sighs, 'aren't we all.'");
+                                    Dialog c1d_1 = new Dialog(" ", md(), "'You're a detective?'", "Of course. Maybe one day you can be as good as me.");
+                                    Dialog c1d_2 = new Dialog(" ", md(), "'I'm sorry for bothering you'", "'Don't worry about it... Heh, you remind me of my beloved. We said sorry more times than we said I love you. He gave the best hugs after our fights.'");
+                                    Dialog c1d_3 = new Dialog(" ", md(), "Give peace offering", "You hand Detective Crispy some pancake batter. 'How'd you know pancakes were our favorite food?'");
+                                    c1d_1.addBranch(c1d_2);
+                                    c1d_2.addBranch(c1d_3);
+                                c1d1d2.addBranch(c1d_1);
+                            c1d1.addBranch(c1d1d1, c1d1d2);
+                        c1df.addBranch(c1d1);
+                        c1.setDialog(c1df);
+                    //set is boss
+                        c1.setIsBoss(true);
+            Character c2 = new Character("Pic", 2000, 7, 1);
+                        c2.damage(23);
+                    //moves
+                        c2.addMove(b);
+                        c2.addMove(fA);
+                        c2.addMove(fA);
+                        c2.addMove(fA);
+                        c2.addMove(sA);
+                        c2.addMove(sA);
+                    //dialog
+                        Dialog c2df = new Dialog(" ", md(), "", "You were having a nice walk until the pirate ship landed in front of you. In hindsight, you have no idea how such a big thing snuck up on you.");
+                            Dialog c2d1 = new Dialog(" ", md(), "'H-hello-?'", "Instantly, a pirateer, aged like wine, disarms you of whatever you were holding (pancake batter). 'Who are ye?' asks the pirate.");
+                                Dialog c2d1d1 = new Dialog(" ", md(), "Redirect", "You speak passionately of your now begone batter. 'Huh,' the pirate says, elegantly. He looks at the batter and listens to your passion, as if reminiscing of an old time.");
+                                    Dialog c2d1d1d1 = new Dialog(" ", md(), "Duel", "'Ever since those monarchs kicked me out, no one shall offend me!' The pirate prepares for combat. Experience eminates from his skin.");
+                                    Dialog c2d1d1d2 = new Dialog(" ", md(), "Forgive", "The pirate lowers his sword after your speech. He moves, raising his arms almost as if to embrace you...'");
+                                        Dialog c2112d1 = new Dialog(" ", md(), "Stop him", "You take a few steps back, 'Ah, of course. Apologies.'");
+                                        Dialog c2112d2 = new Dialog(" ", md(), "Let him", "But he stops himself, 'No. It's not you.'");
+                                        Dialog c2112de = new Dialog("OPPONENT EFFECT", md(-5000, 0,0,0,0), "...", "You leave the pirate. He seems to have a lot on his mind.");
+                                        c2112d1.addBranch(c2112de);
+                                        c2112d2.addBranch(c2112de);
+                                    c2d1d1d2.addBranch(c2112d1,c2112d2);
+                                c2d1d1.addBranch(c2d1d1d1, c2d1d1d2);
+                            c2d1.addBranch(c2d1d1);
+                        c2df.addBranch(c2d1);
+                        c2.setDialog(c2df);
+                        castle.setIsLocked(false);
+                    //set boss
+                        c2.setIsBoss(true);
+            castle.add(new Character("Chescat", 1,4,3), c1, c2);
         
         //initialize final boss
         Character end = new Character("end", 73, 19, 4);
@@ -147,14 +205,15 @@ public class Reigning extends Application {
         
         //initialize items - all items should be initialized now, and not in methods or smn. 
             //testing item initialization below
-        Item ic1 = new Item("Apple");
+        Item ic1 = new Item("Healing Apple", -1, "pear", 1.0, 0.0, 0.0, 10.0, 0);
             ic1.setType("consume");
-        Item ic2 = new Item("uno stick");
-        Item ic3 = new Item("Defense potion", -1, 0.0, 0.0, 0.0, 10.0, 0);
-        Item ic9 = new Item("Strength potion", -1, 0.0, 0.0, 6.0, 0.0, 0);
-        Item ic10 = new Item("2 turn turtle", 2, "turtlePot", 0.0, 0.0, 0.0, 7.0, 0);
-        Item ic11 = new Item("the sandwich", 4, 7.0, 2.0, 7.0, 5.0, 2);
-        user.addItem(ic1, ic2, ic3, ic9);
+        Item ic2 = new Item("uno stick", -1, "stick",0.0,0.0,5.0,0.0,0);
+            ic2.setType("equip");
+        Item ic3 = new Item("Defense potion", -1, "defPot",0.0, 0.0, 0.0, 10.0, 0);
+        Item ic4 = new Item("Strength potion", -1,"strPot", 0.0, 0.0, 6.0, 0.0, 0);
+        Item ic5 = new Item("2 turn turtle", 2, "turtlePot", 0.0, 0.0, 0.0, 7.0, 0);
+        Item ic6 = new Item("the sandwich", 4, "sandwich",7.0, 2.0, 7.0, 5.0, 2);
+        user.addItem(ic1, ic2, ic3, ic4, ic5, ic6);
         user.addItem(ic1, 5);
         
             //TESTING ITEM FUNCTIONS
